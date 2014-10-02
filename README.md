@@ -256,6 +256,12 @@ To update `mup` to the latest version, just type:
 You should try and keep `mup` up to date in order to keep up with the latest Meteor changes. But note that if you need to update your Node version, you'll have to run `mup setup` again before deploying.
 
 ### Troubleshooting
+If you can't deploy your app and getting errors like this "WARNING: Building your app with host: localhost. Pass a -p argument to specify a host URL". The common problem is because you have added android platform or ios platform in your meteor app. So try to remove them with this command.
+```
+meteor remove-platform android
+meteor remove-platform ios
+```
+Then try to re-deploy your app, and it should work. More detail about this [issue](https://github.com/arunoda/meteor-up/issues/146#issuecomment-57611091).
 
 #### Check Logs
 If you suddenly can't deploy your app anymore, first use the `mup logs -f` command to check the logs for error messages.
